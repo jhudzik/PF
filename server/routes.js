@@ -4,8 +4,8 @@
 var flickr = require('./flickr');
 
 module.exports = function(app) {
-	app.get('/api/search', function(req, res) {
-		flickr.search(req.query, function(response) {
+	app.get('/api/*', function(req, res) {
+		flickr.request(req.query, function(response) {
 			res.send(response);
 		});
 	});
