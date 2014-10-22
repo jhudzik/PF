@@ -8,19 +8,24 @@
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 		<!-- build:css(.) styles/vendor.css -->
 		<!-- bower:css -->
+		<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
 		<!-- endbower -->
 		<!-- endbuild -->
 		<!-- build:css(.tmp) styles/main.css -->
-		<link rel="stylesheet" href="styles/main.css">
+		<link rel="stylesheet" href="styles/main.css" />
 		<!-- endbuild -->
+		<link href='//fonts.googleapis.com/css?family=Dosis:300,400,600' rel='stylesheet' />
+		<style></style>
 	</head>
 	<body ng-app="photoFetch">
 	<!--[if lt IE 7]>
 	  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 
+	<ng-include src="'views/common/header.html'"></ng-include>
 	<div ng-view=""></div>
-
+	<ng-include src="'views/common/footer.html'"></ng-include>
+	<loading-indicator></loading-indicator>
 	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -64,8 +69,22 @@
 
 		<!-- build:js({.tmp,app}) scripts/scripts.js -->
 		<script src="scripts/app.js"></script>
-		<script src="scripts/controllers/main.js"></script>
-		<script src="scripts/controllers/about.js"></script>
+
+		<!-- common -->
+		<script src="scripts/common/module.js"></script>
+		<script src="scripts/common/directives/loading-indicator.js"></script>
+
+		<!-- search -->
+		<script src="scripts/search/module.js"></script>
+		<script src="scripts/search/controllers/search-form.js"></script>
+		<script src="scripts/search/controllers/search-results.js"></script>
+		<script src="scripts/search/services/search.js"></script>
+		<script src="scripts/search/services/flickr.js"></script>
+
+		<!-- photo -->
+		<script src="scripts/photo/module.js"></script>
+		<script src="scripts/photo/directives/photo.js"></script>
+		
 		<!-- endbuild -->
 	</body>
 </html>
