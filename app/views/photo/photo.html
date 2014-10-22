@@ -1,0 +1,22 @@
+<figure>
+	<!-- <loading-indicator></loading-indicator> -->
+	<div class="overlay"><div></div></div>
+	<div class="menu">
+		<div class="fa fa-close fa-2x remove fa-fw" ng-click="remove(index)"></div>
+		<div class="fa fa-info-circle fa-2x fa-fw info" ng-click="getInfo(index)" ng-disabled="info"></div>
+		<div class="fa fa-check fa-2x fa-fw"></div>
+		<div class="fa fa-print fa-2x fa-fw"></div>
+	</div>
+	<img ng-src="{{src}}" />
+	<figcaption ng-if="title || details">
+		<h4>{{title}}</h4>
+		<ul>
+			<li ng-if="details.description" ng-bind-html="details.description"></li>
+			<li ng-if="details.owner">
+				Owner: {{details.owner.username}}
+			</li>
+			<li ng-if="details.dateTaken">Date Taken: {{details.dateTaken | date: 'medium'}}</li>
+		</ul>
+		<div ng-repeat='note in details.notes'>{{note}}</div>
+	</figcaption>
+</figure>

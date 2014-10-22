@@ -1,0 +1,12 @@
+<form ng-controller="searchFormCtrl" ng-submit="search()" class="form-inline" name="searchForm" novalidate>
+	<div class="form-group">
+		<input ng-model="searchParams.tags" class="form-control" placeholder="Search Tags" />
+		<input type="number" ng-model="searchParams.cap" class="form-control" min="0" max="200"/>
+	</div>
+	<div class="form-group">
+		<!-- See https://www.flickr.com/services/api/misc.urls.html for size descriptors -->
+		<input type="radio" ng-model="searchParams.size" value="n" />
+		<input type="radio" ng-model="searchParams.size" value="z" /> 
+	</div>
+	<button type="submit" class="btn" ng-disabled="searchForm.$invalid">Search</button>
+</form>
