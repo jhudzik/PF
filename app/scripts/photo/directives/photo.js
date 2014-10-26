@@ -5,17 +5,15 @@ angular.module('pfPhoto')
 	.directive('photo',
 		function(searchFactory) {
 			return {
-				controller: function($scope, $element, $timeout) {
+				controller: function($scope, $timeout) {
 					$scope.getInfo = function(index) {
-						var info,
-							figure = $element.children().eq(0);
-						figure.addClass('get-info');
+						var info;
+						$scope.$broadcast('getInfo');
 						searchFactory
 							.getPhotoInfo(index)
 							.then(
 								function(response) {
 									info = response.data.photo;
-									console.log(info);
 									$scope.details = {
 										dateTaken: new Date(info.dates.taken),
 										description: info.description._content,
@@ -26,7 +24,7 @@ angular.module('pfPhoto')
 							)
 							.finally(function() {
 								$timeout(function() {
-									figure.removeClass('get-info');
+									$scope.$broadcast('infoResponse');
 								}, 500);
 							});
 					};

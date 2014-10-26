@@ -3,11 +3,18 @@ a {
 	&:hover {
 		text-decoration: none;
 	}
+	&:focus {
+		outline: none;
+	}
 }
 
 body {
 	position: relative;
 	margin: 0;
+}
+
+img, video {
+	max-width: 100%;
 }
 
 html, body {

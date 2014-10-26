@@ -1,0 +1,68 @@
+
+$spinner-color: #81dcf8;
+
+.overlay {
+	background-color: rgba(0,0,0,0.8);
+	display: none;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+	&.active {
+		display: block;
+		& + .menu {
+			display: none;
+			& + img {
+				& + figcaption {
+					display: none !important;
+				}
+			}
+		}
+	}
+	&.fixed {
+		position: fixed;
+	}
+}
+
+// %spinners {
+// 	$size: 40px;
+// 	$multiplier: 1;
+// 	@each in small, large
+// 		$scaled: $size * $multiplier;
+// 		.{$size} {
+// 			height: $scaled;
+// 			margin-left: $scaled / -2;
+// 			margin-top: $scaled / -2;
+// 			width: $scaled;
+// 		}
+// }
+
+.spinner {
+	height: 40px;
+	left: 50%;
+	margin-left: -20px;
+	margin-top: -20px;
+	position: absolute;
+	top: 50%;
+	width: 40px;
+}
+
+.circular-fading {
+	& > .spinner {
+		@include sham-spinner-circular-fading($spinner-color, 40px, 1.5s);
+	}
+}
+
+.dots-fading {
+	& > .spinner {
+		@include sham-spinner-dots-fading($spinner-color, 40px, 1s);
+	}
+}
+
+.pinwheel-fading {
+	& > .spinner {
+		@include sham-spinner-pinwheel-fading($spinner-color, 40px, 2s);
+	}
+}
