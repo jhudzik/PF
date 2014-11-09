@@ -1,31 +1,40 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name pfApp
- * @description
- * # pfApp
- *
- * Main module of the application.
- */
 angular
-  .module('pfApp', [
-    'ngAnimate',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+	.module('photoFetch', [
+		'ngAnimate',
+		'ngRoute',
+		'ngResource',
+		'ngSanitize',
+		'pfCommon',
+		'pfSearch',
+		'pfPhoto'
+	])
+	.config(function($routeProvider, $httpProvider) {
+		$routeProvider
+			.when('/results', {
+				controller: 'searchResultsCtrl',
+				templateUrl: 'views/search/search-results.html'
+			})
+			.otherwise({
+				redirectTo: '/'
+			});
+
+		$httpProvider.interceptors.push(function($rootScope) {
+			var apiRoute = /^\/?api\/(?!info)/; // api routes (/api/info excluded)
+			return {
+				request: function(config) {
+					if(config.url.search(apiRoute) > -1) {
+						$rootScope.$broadcast('apiReq');
+					}
+					return config;
+				},
+				response: function(response) {
+					if(response.config.url.search(apiRoute) > -1) {
+						$rootScope.$broadcast('apiReqEnd');						
+					}
+					return response;
+				}
+			}
+		});
+	});

@@ -1,0 +1,6 @@
+<section id="search-results">
+	<div id="clear">
+		<button ng-click="clear()" ng-disabled="clearDisabled" class="btn">Clear Results</button>
+	</div>
+	<photo ng-repeat="photo in photos | filter: searchResultOptions.filter" src="photo.src" ng-attr-title="photo.title" data-index="{{$index}}"></photo>
+</section>
