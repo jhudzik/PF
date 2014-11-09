@@ -1,6 +1,6 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
 @import "sham-spinner/sham-spinner.scss";
 // endbower
 
@@ -13,17 +13,6 @@ body {
 	line-height: 1.2;
 	margin:0;
 	position:relative;
-}
-
-header {
-	background-color: rgba(0,0,0,0.95);
-	color: #fff;
-	left:0;
-	padding-bottom:15px;
-	position: fixed;
-	top:0;
-	width: 100%;
-	z-index: 2;
 }
 
 // search results
