@@ -9,7 +9,7 @@ $spinner-color: #81dcf8;
 	position: absolute;
 	top: 0;
 	width: 100%;
-	z-index: 2;
+	z-index: 3;
 	&.active {
 		display: block;
 		& + .menu {
@@ -25,19 +25,6 @@ $spinner-color: #81dcf8;
 		position: fixed;
 	}
 }
-
-// %spinners {
-// 	$size: 40px;
-// 	$multiplier: 1;
-// 	@each in small, large
-// 		$scaled: $size * $multiplier;
-// 		.{$size} {
-// 			height: $scaled;
-// 			margin-left: $scaled / -2;
-// 			margin-top: $scaled / -2;
-// 			width: $scaled;
-// 		}
-// }
 
 .spinner {
 	height: 40px;

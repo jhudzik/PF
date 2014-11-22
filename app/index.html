@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>PhotoFetch</title>
 		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 		<!-- build:css(.) styles/vendor.css -->
 		<!-- bower:css -->
@@ -20,10 +20,11 @@
 	<!--[if lt IE 7]>
 	  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
-
-	<ng-include src="'views/common/header.html'"></ng-include>
-	<div ng-view=""></div>
-	<ng-include src="'views/common/footer.html'"></ng-include>
+	<div class="container-fluid">
+		<ng-include src="'views/common/header.html'"></ng-include>
+		<div ng-view=""></div>
+		<ng-include src="'views/common/footer.html'"></ng-include>
+	</div>
 	<spinner type="pinwheel-fading" on="apiReq" off="apiReqEnd" class="fixed large"></spinner>
 
 	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -64,6 +65,8 @@
 	<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 	<script src="bower_components/angular-animate/angular-animate.js"></script>
 	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/angular-touch/angular-touch.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 	<!-- endbower -->
 	<!-- endbuild -->
 
@@ -73,6 +76,8 @@
 		<!-- common -->
 		<script src="scripts/common/module.js"></script>
 		<script src="scripts/common/directives/spinner.js"></script>
+		<script src="scripts/common/directives/menu-toggle.js"></script>
+		<script src="scripts/common/directives/gallery.js"></script>
 
 		<!-- search -->
 		<script src="scripts/search/module.js"></script>
@@ -84,7 +89,7 @@
 		<!-- photo -->
 		<script src="scripts/photo/module.js"></script>
 		<script src="scripts/photo/directives/photo.js"></script>
-		
+
 		<!-- endbuild -->
 	</body>
 </html>

@@ -20,15 +20,16 @@ angular.module('pfSearch')
 							method: 'flickr.photos.search',
 							nojsoncallback: '1',
 							per_page: params.cap,
-							tags: params.tags
+							tags: params.tags,
+							tag_mode: 'all'
 						};
 						/* The following params are not required, but may be included
 						   based on the search model (params). */
-						if(params.startDate) {
-							flickrizedParams.min_date_taken = params.startDate;
+						if(params.minDateTaken) {
+							flickrizedParams.min_taken_date = params.minDateTaken;
 						}
-						if(params.endDate) {
-							flickrizedParams.max_date_taken = params.endDate;
+						if(params.maxDateTaken) {
+							flickrizedParams.max_taken_date = params.maxDateTaken;
 						}
 						return flickrizedParams;
 					}

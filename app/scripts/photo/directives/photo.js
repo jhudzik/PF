@@ -6,6 +6,10 @@ angular.module('pfPhoto')
 		function(searchFactory) {
 			return {
 				controller: function($scope, $timeout) {
+					$scope.showMenu = false;
+					/**
+					 * @param {Number} index
+					 */
 					$scope.getInfo = function(index) {
 						var info;
 						$scope.$broadcast('getInfo');
@@ -31,9 +35,17 @@ angular.module('pfPhoto')
 					$scope.remove = function(index) {
 						searchFactory.removePhoto(index);
 					};
-				},
-				link: function(scope, elem, attrs) {
-
+					/**
+					 *	Toggle display of photo menu (fired
+					 *	on ngTouch swipe events).
+					 *	@param {String} [toggleState] - Passing
+					 *		the value 'open' will display the
+					 *		menu. Calling with no argument will
+					 *		hide the menu.
+					 */
+					$scope.toggleMenu = function(toggleState) {
+						$scope.showMenu = toggleState === 'open';
+					};
 				},
 				restrict: 'E',
 				scope: {

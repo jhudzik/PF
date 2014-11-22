@@ -1,7 +1,6 @@
-<figure>
-	<!-- <loading-indicator></loading-indicator> -->
+<figure ng-swipe-left="toggleMenu('open')" ng-swipe-right="toggleMenu()" ng-class="{odd: 'index % 2'}">
 	<spinner type="dots-fading" on="getInfo" off="infoResponse"></spinner>
-	<div class="menu">
+	<div class="menu" ng-class="{visible: showMenu}">
 		<div class="fa fa-close fa-2x remove fa-fw" ng-click="remove(index)"></div>
 		<div class="fa fa-info-circle fa-2x fa-fw info" ng-click="getInfo(index)" ng-disabled="info"></div>
 		<div class="fa fa-check fa-2x fa-fw"></div>

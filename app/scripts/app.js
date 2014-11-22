@@ -4,8 +4,10 @@ angular
 	.module('photoFetch', [
 		'ngAnimate',
 		'ngRoute',
+		'ngTouch',
 		'ngResource',
 		'ngSanitize',
+		'ui.bootstrap',
 		'pfCommon',
 		'pfSearch',
 		'pfPhoto'
@@ -31,7 +33,7 @@ angular
 				},
 				response: function(response) {
 					if(response.config.url.search(apiRoute) > -1) {
-						$rootScope.$broadcast('apiReqEnd');						
+						$rootScope.$broadcast('apiReqEnd');
 					}
 					return response;
 				}

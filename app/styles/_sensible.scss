@@ -9,12 +9,20 @@ a {
 }
 
 body {
-	position: relative;
+	font-size: 1em !important;
+	line-height: 1.2;
 	margin: 0;
+	position: relative;
 }
 
 img, video {
 	max-width: 100%;
+}
+
+label {
+	&[for] {
+		cursor: pointer;
+	}
 }
 
 html, body {

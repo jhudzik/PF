@@ -1,12 +1,46 @@
-<form ng-controller="searchFormCtrl" ng-submit="search()" class="form-inline" name="searchForm" novalidate>
-	<div class="form-group">
-		<input ng-model="searchParams.tags" class="form-control" placeholder="Search Tags" />
-		<input type="number" ng-model="searchParams.cap" class="form-control" min="0" max="200"/>
+<form ng-controller="searchFormCtrl" ng-submit="search()" name="searchForm" novalidate class="form-inline" ng-class="{collapsed: collapsed}">
+	<div class="form-group row">
+		<div class="col-xs-12 col-sm-6">
+			<label class="sr-only">Search Tags</label>
+			<input ng-model="searchParams.tags" class="form-control" placeholder="Search Tags" id="search-tags"/>
+		</div>
+		<div class="col-xs-6 col-sm-3">
+			<label class="sr-only">Number of Photos</label>
+			<input type="number" ng-model="searchParams.cap" class="form-control" min="0" max="200"/>
+		</div>
 	</div>
-	<div class="form-group">
-		<!-- See https://www.flickr.com/services/api/misc.urls.html for size descriptors -->
-		<input type="radio" ng-model="searchParams.size" value="n" />
-		<input type="radio" ng-model="searchParams.size" value="z" /> 
+	<div class="form-group row" id="img-sizes">
+		<div class="col-xs-12">
+			<!-- See https://www.flickr.com/services/api/misc.urls.html for size descriptors -->
+			<label for="img-small" class="radio-inline">
+				<input type="radio" ng-model="searchParams.size" value="n" id="img-small"/>
+				Small
+			</label>
+			<label for="img-large" class="radio-inline">
+				<input type="radio" ng-model="searchParams.size" value="z" id="img-large"/>
+				Large
+			</label>
+		</div>
 	</div>
-	<button type="submit" class="btn" ng-disabled="searchForm.$invalid">Search</button>
+	<div class="form-group row" id="dates">
+		<div class="col-xs-12">
+			<label class="pull-left collapse-label" ng-click="toggleDates()">Select Dates</label>
+			<div class="fa fa-caret-right fa-2x pull-left" ng-class="{open: !datesCollapsed}"></div>
+		</div>
+		<div class="col-xs-12" collapse="datesCollapsed">
+			<div class="col-xs-12">
+				<label>Min. Date Taken</label>
+				<input type="date" ng-model="searchParams.minDateTaken" class="form-control"/>
+			</div>
+			<div class="col-xs-12">
+				<label>Max. Date Taken</label>
+				<input type="date" ng-model="searchParams.maxDateTaken" class="form-control"/>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<button type="submit" class="btn btn-default" ng-disabled="searchForm.$invalid">Search</button>
+		</div>
+	</div>
 </form>
