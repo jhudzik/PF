@@ -1,0 +1,147 @@
+
+body {
+	color: #999;
+	font-family: 'Dosis', sans-serif;
+	font-size: 1.5em;
+}
+
+figcaption {
+	background-color: #000;
+	color: #fff;
+	display: none;
+	font-size: 1.5rem;
+	overflow: hidden;
+	padding: 10px;
+	&.visible {
+		display: block;
+	}
+}
+
+figure {
+	display: block;
+	float: left;
+	margin-bottom: 5px;
+	position: relative;
+	overflow: hidden;
+	.menu {
+		@include transition(right .15s ease-in);
+		background-color: $menu-bg;
+		border-color: $menu-border-color;
+		border-style: solid;
+		border-width: 0 0 1px 1px;
+		color: $menu-icon-color;
+		position: absolute;
+		right: -40px;
+		width: 40px;
+		z-index: 1;
+		&.visible {
+			@include transition(right .15s ease-in);
+			right: 0;
+		}
+		& > div {
+			border-top: 1px solid $menu-border-color;
+			cursor: pointer;
+			height: 40px;
+			padding: 8px;
+			width: 100%;
+			&:first-child {
+				border-top: none;
+			}
+		}
+	}
+}
+
+footer {
+	bottom: 0;
+	position: absolute;
+	width: calc(100% - 30px);
+}
+
+header {
+	margin-left: -15px;
+	margin-right: -15px;
+	position: fixed;
+	width: 100%;
+	z-index: 3;
+	& > div {
+		&:first-child {
+			background-color: $header-bg;
+			opacity: 0.95;
+		}
+	}
+	form {
+		background-color: $search-form-bg;
+		font-size: 1.2em;
+		padding: 15px;
+		&.collapsed {
+			display: none;
+		}
+		button {
+			font-size: 1.5em;
+			padding: 10px;
+			width: 100%;
+		}
+		input {
+			margin-bottom: 15px;
+			&.form-control {
+				height: 45px;
+			}
+		}
+	}
+	h1 {
+		font-size: 3.5rem;
+		letter-spacing: 5px;
+	}
+	.search-term {
+		color: $search-terms-color;
+	}
+}
+
+#gallery, #search-results {
+	margin-top: 75px;
+}
+
+#img-sizes {
+	display: none;
+}
+
+#menu-toggle {
+	@include transition(color .25s ease-in);
+	cursor: pointer;
+	font-size: 3.5rem;
+	margin-top: 25px;
+	&:hover {
+		@include transition(color .25s ease-in);
+		color: #ad3;
+	}
+}
+
+#search-terms {
+	margin-bottom: 10px;
+	margin-top: 0;
+}
+
+.collapse-label {
+	cursor: pointer;
+	margin-bottom: 0;
+	margin-right: 10px;
+	margin-top: 5px;
+	& + div {
+		@include transform(rotate(0deg));
+		@include transition(transform .25s ease-in);
+		font-size: 1.5em;
+		&.open {
+			@include transform(rotate(90deg));
+			@include transition(transform .25s ease-in);
+		}
+	}
+}
+
+@include keyframes(rotate) {
+	0% {
+		@include transform(rotate(0deg));
+	}
+	100% {
+		@include transform(rotate(90deg));
+	}
+}

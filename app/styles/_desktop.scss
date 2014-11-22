@@ -1,0 +1,39 @@
+
+figcaption {
+	@include transition(opacity .25s ease-in);
+	background-color: $menu-bg;
+	bottom: 0;
+	display: block;
+	max-height: 35%;
+	opacity: 0;
+	overflow-y: auto;
+	position: absolute;
+	width: 100%;
+}
+
+figure {
+	max-width: 48%;
+	&:hover {
+		figcaption {
+			@include transition(opacity .25s ease-in);
+			@include transition-delay(.25s);
+			opacity: 1;
+		}
+		.menu {
+			@include transition(right .1s ease-in);
+			@include transition-delay(.25s);
+			right: 0;
+		}
+	}
+	&.odd {
+		margin-left: 2%;
+	}
+	.menu {
+		& > div {
+			&:hover {
+				@include transition(color .25s ease-in);
+				color: $menu-icon-hover-color;
+			}
+		}
+	}
+}

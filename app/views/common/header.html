@@ -11,7 +11,7 @@
 				<h3 ng-show="searchTerms.length" id="search-terms">
 					<small>Showing Results for:</small>
 					<small ng-repeat="searchTerm in searchTerms track by $index" class="search-term">
-						{{searchTerm}}
+						&lt;{{searchTerm}}&gt;
 						<span ng-if="!$last">,</span>
 					</small>
 				</h3>

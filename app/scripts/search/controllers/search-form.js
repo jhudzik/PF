@@ -20,6 +20,7 @@ angular.module('pfSearch')
 			 		.then(
 			 			function() {
 			 				$rootScope.searchTerms.unshift($scope.searchParams.tags);
+			 				$scope.searchParams.tags = '';
 			 				$location.url('/results');
 			 			},
 			 			function(err) {
