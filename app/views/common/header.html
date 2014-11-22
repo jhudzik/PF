@@ -1,4 +1,22 @@
 <header>
-	<h1>PhotoFetch</h1>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="col-xs-6">
+				<h1><a href="/">PhotoFetch</a></h1>
+			</div>
+			<div class="col-xs-6 text-right">
+				<menu-toggle></menu-toggle>
+			</div>
+			<div class="col-xs-12">
+				<h3 ng-show="searchTerms.length" id="search-terms">
+					<small>Showing Results for:</small>
+					<small ng-repeat="searchTerm in searchTerms track by $index" class="search-term">
+						{{searchTerm}}
+						<span ng-if="!$last">,</span>
+					</small>
+				</h3>
+			</div>
+		</div>
+	</div>
 	<ng-include src="'views/search/search-form.html'"></ng-include>
 </header>
