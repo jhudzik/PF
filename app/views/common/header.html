@@ -7,11 +7,11 @@
 			<div class="col-xs-6 text-right">
 				<menu-toggle></menu-toggle>
 			</div>
-			<div class="col-xs-12">
-				<h3 ng-show="searchTerms.length" id="search-terms">
+			<div class="col-xs-12" ng-controller="activeSearchCtrl">
+				<h3 ng-show="activeSearchMap[0]" id="search-terms">
 					<small>Showing Results for:</small>
-					<small ng-repeat="searchTerm in searchTerms track by $index" class="search-term">
-						&lt;{{searchTerm}}&gt;
+					<small ng-repeat="(key, tag) in activeSearchMap">
+						<a ng-click="scrollToFragmentId(tag)">&lt;{{tag}}&gt;</a>
 						<span ng-if="!$last">,</span>
 					</small>
 				</h3>

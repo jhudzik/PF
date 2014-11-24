@@ -4,7 +4,6 @@
 angular.module('pfSearch')
 	.controller('searchFormCtrl',
 		function($scope, $rootScope, $location, searchFactory, $interval) {
-			$rootScope.searchTerms = [];
 			$scope.collapsed = true;
 			$scope.datesCollapsed = true;
 			$scope.searchParams = {
@@ -18,8 +17,9 @@ angular.module('pfSearch')
 			 	searchFactory
 			 		.search($scope.searchParams)
 			 		.then(
-			 			function() {
-			 				$rootScope.searchTerms.unshift($scope.searchParams.tags);
+			 			function(photos) {
+			 				searchFactory
+			 					.activeSearch.add($scope.searchParams.tags, photos.length);
 			 				$scope.searchParams.tags = '';
 			 				$location.url('/results');
 			 			},

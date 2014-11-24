@@ -7,7 +7,6 @@ angular.module('pfSearch')
 			$scope.photos = searchFactory.photos;
 			$scope.clear = function() {
 				searchFactory.clear();
-				//$rootScope.searchTerms = [];
 			};
 			/* watch the length of our photo result set
 			   to determine if 'clear' should be enabled */
