@@ -3,7 +3,7 @@
 
 angular.module('pfSearch')
 	.run(function($anchorScroll) {
-		//$anchorScroll.yOffset = 50;
+		$anchorScroll.yOffset = 110;
 	})
 	.controller('activeSearchCtrl',
 		function($scope, $location, $anchorScroll, searchFactory) {

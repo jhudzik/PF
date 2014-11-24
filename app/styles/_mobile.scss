@@ -20,7 +20,7 @@ figcaption {
 figure {
 	display: block;
 	float: left;
-	margin-bottom: 5px;
+	margin-bottom: 15px;
 	position: relative;
 	overflow: hidden;
 	.menu {
@@ -99,6 +99,7 @@ header {
 
 #gallery, #search-results {
 	margin-top: 75px;
+	overflow: auto;
 }
 
 #img-sizes {
@@ -119,6 +120,9 @@ header {
 #search-terms {
 	margin-bottom: 10px;
 	margin-top: 0;
+	a {
+		color: $search-terms-color;
+	}
 }
 
 .collapse-label {
@@ -137,11 +141,6 @@ header {
 	}
 }
 
-@include keyframes(rotate) {
-	0% {
-		@include transform(rotate(0deg));
-	}
-	100% {
-		@include transform(rotate(90deg));
-	}
+[ng-click] {
+	cursor: pointer;
 }

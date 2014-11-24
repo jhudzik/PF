@@ -47,9 +47,13 @@ angular.module('pfPhoto')
 						$scope.showMenu = toggleState === 'open';
 					};
 				},
-				link: function(scope, elem, attrs) {
+				link: function(scope, elem) {
+					var fragId,
+						figure;
 					if(searchFactory.activeSearch.map[scope.index]) {
-						attrs.$set('id', searchFactory.activeSearch.map[scope.index]);
+						figure = elem.children();
+						fragId = searchFactory.activeSearch.map[scope.index];
+						figure.attr('id', fragId);
 					}
 				},
 				restrict: 'E',
