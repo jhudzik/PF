@@ -20,6 +20,7 @@ angular.module('pfSearch')
 							method: 'flickr.photos.search',
 							nojsoncallback: '1',
 							per_page: params.cap,
+							safe_search: 2,
 							tags: params.tags,
 							tag_mode: 'all'
 						};

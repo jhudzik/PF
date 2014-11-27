@@ -15,6 +15,10 @@ angular.module('pfCommon')
 								.toggleClass('visible');
 						});
 					}
+					// rollback to top on a new search
+					scope.$on('pfSearch', function() {
+						$window.scrollTo(0,0);
+					});
 				},
 				restrict: 'A'
 			};

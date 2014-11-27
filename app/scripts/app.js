@@ -37,6 +37,6 @@ angular
 					}
 					return response;
 				}
-			}
+			};
 		});
 	});
