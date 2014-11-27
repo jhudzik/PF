@@ -10,6 +10,7 @@ angular.module('pfSearch')
 			$scope.activeSearchMap = searchFactory.activeSearch.map;
 			$scope.scrollToFragmentId = function(fragmentId) {
 				$location.hash(fragmentId);
+				$scope.activeSection = fragmentId;
 				$anchorScroll();
 			};
 		}

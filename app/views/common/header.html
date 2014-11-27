@@ -11,7 +11,9 @@
 				<h3 ng-show="activeSearchMap[0]" id="search-terms">
 					<small>Showing Results for:</small>
 					<small ng-repeat="(key, tag) in activeSearchMap">
-						<a ng-click="scrollToFragmentId(tag)">&lt;{{tag}}&gt;</a>
+						<a ng-click="scrollToFragmentId(tag)" ng-class="{active: tag === activeSection}">
+							&lt;{{tag}}&gt;
+						</a>
 						<span ng-if="!$last">,</span>
 					</small>
 				</h3>

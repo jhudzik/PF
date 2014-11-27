@@ -122,6 +122,9 @@ header {
 	margin-top: 0;
 	a {
 		color: $search-terms-color;
+		&.active {
+			color: #73e94d;
+		}
 	}
 }
 
