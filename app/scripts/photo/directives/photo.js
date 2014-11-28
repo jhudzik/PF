@@ -33,6 +33,7 @@ angular.module('pfPhoto')
 							});
 					};
 					$scope.remove = function(index) {
+						searchFactory.activeSearch.shiftKeys(index);
 						searchFactory.removePhoto(index);
 					};
 					/**

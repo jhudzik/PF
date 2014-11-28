@@ -18,6 +18,23 @@ angular.module('pfSearch')
 						map[0] = tag;
 						angular.extend(_this.map, map);
 					},
+					shiftKeys: function(keyBoundary) {
+						var keysToShift = [],
+							map = angular.copy(this.map);
+						angular.forEach(map, function(val, key) {
+							key = parseInt(key, 10);
+							if(key > keyBoundary) {
+								keysToShift.push(key);
+							}
+						});
+						for(var i = 0, len = keysToShift.length; i < len; i++) {
+							var shiftedKey = keysToShift[i] - 1;
+							map[shiftedKey] = map[keysToShift[i]];
+							delete map[keysToShift[i]];
+							delete this.map[keysToShift[i]];
+						}
+						angular.extend(this.map, map);
+					},
 					map: {}
 				},
 				clear: function() {
